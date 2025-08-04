@@ -1,0 +1,52 @@
+<div class="container py-5">
+  <h3 class="fw-bold text-center mb-4">📝 Review Your Answers</h3>
+
+  <!-- Review Card -->
+  <div
+    class="card shadow-sm p-4 mb-4"
+    *ngFor="let question of reviewQuestions; let i = index"
+  >
+    <div class="mb-3 d-flex justify-content-between">
+      <h5>Q{{ i + 1 }}: {{ question.text }}</h5>
+
+      <!-- Replace ngClass with individual class bindings -->
+      <span
+        class="badge"
+        [class.bg-success]="question.isCorrect"
+        [class.bg-danger]="!question.isCorrect"
+      >
+        {{ question.isCorrect ? 'Correct' : 'Incorrect' }}
+      </span>
+    </div>
+
+    <!-- Options -->
+    <ul class="list-group">
+      <li
+        class="list-group-item d-flex justify-content-between align-items-center"
+        *ngFor="let option of question.options"
+        [class.bg-success]="option === question.correctAnswer"
+        [class.text-white]="option === question.correctAnswer || (option === question.selectedAnswer && option !== question.correctAnswer)"
+        [class.bg-danger]="option === question.selectedAnswer && option !== question.correctAnswer"
+      >
+        {{ option }}
+
+        <span
+          *ngIf="option === question.correctAnswer"
+          class="badge bg-white text-success"
+          >✔</span
+        >
+
+        <span
+          *ngIf="option === question.selectedAnswer && option !== question.correctAnswer"
+          class="badge bg-white text-danger"
+          >✖</span
+        >
+      </li>
+    </ul>
+  </div>
+
+  <!-- Navigation Button -->
+  <div class="text-center">
+    <button class="btn btn-primary mt-3" routerLink="/student">🏠 Go to Dashboard</button>
+  </div>
+</div>

@@ -1,0 +1,349 @@
+<div class="container py-4">
+    <button class="btn btn-outline-secondary me-2" routerLink="/home">
+        ← Back
+    </button>
+  <h2 class="text-center fw-bold mb-4 text-success">🏫 Organization Control Panel</h2>
+
+  <!-- Tabs -->
+  <ul class="nav nav-tabs mb-4" id="orgTabs">
+    <li class="nav-item">
+      <a class="nav-link active" data-bs-toggle="tab" href="#roomTab">🏷️ Create Room/Class</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="tab" href="#studentTab">👨‍🎓 Add Students</a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="tab" href="#dashboardTab">📊 Dashboard</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="tab" href="#testTab">📝 Generate & Share Test</a>
+    </li>
+  </ul>
+
+  <div class="tab-content">
+    <!-- Create Room/Class Tab -->
+    <div class="tab-pane fade show active" id="roomTab">
+      <div class="card shadow-sm p-4 mb-4">
+        <h5 class="mb-3">🏷️ Create a Room or Class</h5>
+        <form class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label">Room/Class Name</label>
+            <input type="text" class="form-control" placeholder="Enter Room Name" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Subject</label>
+            <input type="text" class="form-control" placeholder="e.g., Physics, Math">
+          </div>
+          <div class="col-12">
+            <button type="submit" class="btn btn-success">Create Room</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Add Students Tab -->
+    <div class="tab-pane fade" id="studentTab">
+      <div class="card shadow-sm p-4 mb-4">
+        <h5 class="mb-3">👨‍🎓 Add Student</h5>
+        <form class="row g-3">
+          <div class="col-md-4">
+            <label class="form-label">Full Name</label>
+            <input type="text" class="form-control" placeholder="Student Name" required>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Mobile Number</label>
+            <input type="tel" class="form-control" placeholder="e.g., 9876543210" required>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Email Address</label>
+            <input type="email" class="form-control" placeholder="e.g., student@example.com" required>
+          </div>
+          <div class="col-md-12">
+            <button type="submit" class="btn btn-primary">Add Student</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Dashboard Tab -->
+    <div class="tab-pane fade" id="dashboardTab">
+      <div class="row g-3">
+        <!-- Summary Cards -->
+        <div class="col-md-3">
+          <div class="card text-white bg-primary shadow p-3">
+            <h6>Total Tests</h6>
+            <h2>42</h2>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card text-white bg-success shadow p-3">
+            <h6>Total Students</h6>
+            <h2>310</h2>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card text-white bg-warning shadow p-3">
+            <h6>Average Score</h6>
+            <h2>76%</h2>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card text-white bg-danger shadow p-3">
+            <h6>Weakest Section</h6>
+            <h2>Physics</h2>
+          </div>
+        </div>
+      </div>
+
+      <!-- Test List -->
+      <div class="card mt-4 shadow-sm p-3">
+        <h5 class="mb-3">📝 Test Summary</h5>
+        <table class="table table-hover">
+          <thead class="table-light">
+            <tr>
+              <th>#</th>
+              <th>Test Name</th>
+              <th>Class</th>
+              <th>Students Attended</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Physics Chapter 1</td>
+              <td>Class 11</td>
+              <td>25</td>
+              <td>
+                <button class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#testModal1">View Details</button>
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Maths Algebra</td>
+              <td>Class 10</td>
+              <td>32</td>
+              <td>
+                <button class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#testModal2">View Details</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Generate & Share Test Tab -->
+    <div class="tab-pane fade" id="testTab">
+        <div class="card shadow-sm p-4">
+            <h5 class="mb-3">🧪 Generate Test (From PDF or Image)</h5>
+            <form class="row g-3 align-items-end">
+                <div class="col-md-4">
+                    <label class="form-label">Upload PDF/Image</label>
+                    <input type="file" class="form-control" accept=".pdf, image/*" required>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Select Difficulty</label>
+                    <select class="form-select">
+                    <option>Easy</option>
+                    <option>Medium</option>
+                    <option>Hard</option>
+                    <option>Conceptual</option>
+                    <option>Mix</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <button type="button" class="btn btn-warning w-100"  #generateBtn (click)="onGenerate()">Generate Test</button>
+                </div>
+            </form>
+            
+
+            <!-- Preview Questions -->
+            <div class="mt-5" #previewSection style="display:none;">
+            <h5 class="fw-bold mb-3 text-success">🧾 Test Preview (Editable)</h5>
+            <div class="list-group">
+                <!-- Example Questions (Dynamically Loaded) -->
+                <div class="list-group-item d-flex flex-column gap-2">
+                <label>Q1. <input type="text" class="form-control" value="What is Newton's Second Law?"></label>
+                <label>Answer: <input type="text" class="form-control" value="F = ma"></label>
+                </div>
+                <div class="list-group-item d-flex flex-column gap-2">
+                <label>Q2. <input type="text" class="form-control" value="Define gravity."></label>
+                <label>Answer: <input type="text" class="form-control" value="Force attracting a body toward Earth"></label>
+                </div>
+            </div>
+            <button class="btn btn-success mt-4" (click)="onConfirmPreview()">Confirm & Proceed to Share</button>
+            </div>
+
+            <div #shareSection class="mt-5 p-4 border rounded bg-light" style="display:none;">
+                <h5 class="mb-3">📤 Share Test</h5>
+
+                <!-- Share Option Tabs -->
+                <div class="d-flex gap-3 mb-4">
+                    <button
+                    class="btn"
+                    [ngClass]="{ 'btn-primary': shareMode === 'class', 'btn-outline-primary': shareMode !== 'class' }"
+                    (click)="shareMode = 'class'"
+                    >
+                    Share with Class
+                    </button>
+                    <button
+                    class="btn"
+                    [ngClass]="{ 'btn-primary': shareMode === 'student', 'btn-outline-primary': shareMode !== 'student' }"
+                    (click)="shareMode = 'student'"
+                    >
+                    Share with Individual Student
+                    </button>
+                </div>
+
+                <!-- Share with Class -->
+                <div *ngIf="shareMode === 'class'">
+                    <div class="mb-3">
+                    <label for="classSelect" class="form-label">Select Class</label>
+                    <select id="classSelect" class="form-select" [(ngModel)]="selectedClass">
+                        <option *ngFor="let class of classList" [value]="class">{{ class }}</option>
+                    </select>
+                    </div>
+                    <button class="btn btn-success" (click)="shareWithClass()">Share with Class</button>
+                </div>
+
+                <!-- Share with Individual Student -->
+                <div *ngIf="shareMode === 'student'">
+                    <div class="mb-3">
+                    <label for="studentEmail" class="form-label">Enter Student Email</label>
+                    <input type="email" class="form-control" id="studentEmail" [(ngModel)]="studentEmail" />
+                    </div>
+                    <button class="btn btn-success" (click)="shareWithStudent()">Share with Student</button>
+                </div>
+                </div>
+
+        </div>
+    </div>
+
+  </div>
+
+  <!-- Generate Test Section -->
+  <!-- <div class="card shadow-sm p-4 mt-4">
+    <h5 class="mb-3">🧪 Generate Test (From PDF or Image)</h5>
+    <form class="row g-3 align-items-end">
+      <div class="col-md-4">
+        <label class="form-label">Upload PDF/Image</label>
+        <input type="file" class="form-control" accept=".pdf, image/*" required>
+      </div>
+      <div class="col-md-4">
+        <label class="form-label">Select Difficulty</label>
+        <select class="form-select">
+          <option>Easy</option>
+          <option>Medium</option>
+          <option>Hard</option>
+          <option>Conceptual</option>
+          <option>Mix</option>
+        </select>
+      </div>
+      <div class="col-md-4">
+        <button type="submit" class="btn btn-warning w-100">Generate Test</button>
+      </div>
+    </form>
+  </div> -->
+
+  <!-- Share Test Section -->
+  <!-- <div class="card shadow-sm p-4 mt-4">
+    <h5 class="mb-3">📤 Share Test Link</h5>
+    <form class="row g-3 align-items-end">
+      <div class="col-md-6">
+        <label class="form-label">Select Room/Class</label>
+        <select class="form-select">
+          <option>Class 11 Physics</option>
+          <option>Class 12 Biology</option>
+        </select>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Or Enter Student Email/Mobile</label>
+        <input type="text" class="form-control" placeholder="e.g., 9876543210 or email">
+      </div>
+      <div class="col-12">
+        <button class="btn btn-success w-100">Share Test</button>
+      </div>
+    </form>
+  </div> -->
+</div>
+
+<!-- Modal for Test Details -->
+<div class="modal fade" id="testModal1" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content shadow">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">Test Details - Physics Chapter 1</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p><strong>Total Students:</strong> 25</p>
+        <p><strong>Average Score:</strong> 71%</p>
+        <p><strong>Weak Topics:</strong> Newton’s Law, Friction</p>
+
+        <h6 class="mt-4">📋 Student Results:</h6>
+        <table class="table table-bordered mt-2">
+          <thead class="table-light">
+            <tr>
+              <th>Student</th>
+              <th>Score</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Ravi Kumar</td>
+              <td>85%</td>
+              <td><span class="badge bg-success">Passed</span></td>
+            </tr>
+            <tr>
+              <td>Sita Devi</td>
+              <td>56%</td>
+              <td><span class="badge bg-danger">Needs Improvement</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 2nd Modal Example -->
+<div class="modal fade" id="testModal2" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content shadow">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">Test Details - Maths Algebra</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p><strong>Total Students:</strong> 32</p>
+        <p><strong>Average Score:</strong> 81%</p>
+        <p><strong>Weak Topics:</strong> Quadratic Roots</p>
+
+        <h6 class="mt-4">📋 Student Results:</h6>
+        <table class="table table-bordered mt-2">
+          <thead class="table-light">
+            <tr>
+              <th>Student</th>
+              <th>Score</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Amit Jha</td>
+              <td>90%</td>
+              <td><span class="badge bg-success">Passed</span></td>
+            </tr>
+            <tr>
+              <td>Neha Singh</td>
+              <td>60%</td>
+              <td><span class="badge bg-warning">Average</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

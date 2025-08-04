@@ -1,0 +1,30 @@
+<!-- Full Page Centering -->
+<div class="d-flex justify-content-center align-items-center min-vh-100">
+  <div class="container">
+    <div class="row justify-content-center g-4">
+      <!-- Student Card -->
+      <div class="col-12 col-md-6 d-flex justify-content-center">
+        <div class="card text-center shadow-lg p-4" style="border-radius: 1rem; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+          <img src="./assets/student-svgrepo-com.svg" alt="Student" class="card-img-top mx-auto" style="width: 96px; height: 96px;">
+          <div class="card-body">
+            <h5 class="card-title fw-bold">I’m a Student</h5>
+            <p class="card-text text-muted">Take tests, get guidance, and improve fast.</p>
+            <button class="btn btn-primary w-100" routerLink="/student">Continue as Student</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Organization Card -->
+      <div class="col-12 col-md-6 d-flex justify-content-center">
+        <div class="card text-center shadow-lg p-4" style="border-radius: 1rem; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+          <img src="./assets/organisation-svgrepo-com.svg" alt="Organization" class="card-img-top mx-auto" style="width: 96px; height: 96px;">
+          <div class="card-body">
+            <h5 class="card-title fw-bold">We are an Organization</h5>
+            <p class="card-text text-muted">Create and manage tests, track student progress.</p>
+            <button class="btn btn-outline-primary w-100" routerLink="/organisation">Continue as Organization</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

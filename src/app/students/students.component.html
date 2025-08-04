@@ -1,0 +1,62 @@
+<div class="container my-5">
+  <!-- Heading and Intro -->
+  <div class="text-center mb-5">
+    <h2 class="fw-bold">🎓 Welcome, Student!</h2>
+    <p class="text-muted fs-5 mt-2">
+      Let’s help you get started — generate tests, explore careers, and track your learning every week.
+    </p>
+  </div>
+
+  <!-- Profile Setup Card -->
+  <div class="row justify-content-center mb-5">
+    <div class="col-12 col-lg-10">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center p-4 bg-light rounded shadow">
+        <div class="mb-3 mb-md-0">
+          <h5 class="fw-bold mb-1">👤 Profile Setup</h5>
+          <p class="mb-0 text-muted">Complete your profile to unlock your personalized journey</p>
+        </div>
+        <div class="d-flex align-items-center gap-3 w-100 w-md-auto">
+          <div class="progress w-100 w-md-50 me-3" style="height: 8px;">
+            <div class="progress-bar bg-success" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          <button class="btn btn-primary">Continue Setup</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Action Cards -->
+  <div class="row g-4 justify-content-center">
+    <!-- Learn & Generate Tests -->
+    <div class="col-12 col-md-6 col-lg-4 d-flex">
+      <div class="card shadow text-center p-4 w-100 rounded-4 flex-fill" style="transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <div class="fs-1 mb-3">📚</div>
+        <h5 class="fw-bold">Learn & Generate Tests</h5>
+        <p class="text-muted">
+          Learn topics, generate tests based on what you’ve studied, and verify if your concepts are clear.
+        </p>
+        <button class="btn btn-success w-100 mt-3" routerLink="/student-learn-test">Start Learning</button>
+      </div>
+    </div>
+
+    <!-- Get Guidance -->
+    <div class="col-12 col-md-6 col-lg-4 d-flex">
+      <div class="card shadow text-center p-4 w-100 rounded-4 flex-fill" style="transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <div class="fs-1 mb-3">🧠</div>
+        <h5 class="fw-bold">Get Guidance</h5>
+        <p class="text-muted">Discover career paths that align with your interests and skills.</p>
+        <button class="btn btn-outline-primary w-100 mt-3" routerLink="/career-guidance">Explore Careers</button>
+      </div>
+    </div>
+
+    <!-- Improve Fast -->
+    <div class="col-12 col-md-6 col-lg-4 d-flex">
+      <div class="card shadow text-center p-4 w-100 rounded-4 flex-fill" style="transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <div class="fs-1 mb-3">📈</div>
+        <h5 class="fw-bold">Improve Fast</h5>
+        <p class="text-muted">Track your weekly improvements and get smart suggestions to level up.</p>
+        <button class="btn btn-outline-secondary w-100 mt-3">Track Progress</button>
+      </div>
+    </div>
+  </div>
+</div>
