@@ -15,7 +15,7 @@ app.use(cors());
 app.use(express.json());
 
 // Serve static Angular files
-app.use(express.static(path.join(__dirname, '../dist/test')));
+app.use(express.static(path.join(__dirname, '../dist/ai-powered-test')));
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
